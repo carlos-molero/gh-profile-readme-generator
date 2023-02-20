@@ -1,3 +1,4 @@
+/*
 MIT License
 
 Copyright (c) 2023 Carlos Molero Mata
@@ -19,3 +20,53 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+*/
+
+@import url(../theme.less);
+
+.root{
+    background-color: @color-bg;
+    display: flex;
+    flex-direction: column;
+
+    .md-blocks{
+        margin-bottom: 20px;
+    }
+    
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    .row{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .editor{}
+
+    .preview{
+        height: 740px;
+        max-height: 740px;
+        overflow-y: scroll;
+        color: white;
+    }
+
+    .toggle{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        margin-right: 1.5em;
+        border-radius: 50%;
+        cursor: pointer;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        right: auto;
+    }
+}

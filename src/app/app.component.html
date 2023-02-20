@@ -1,4 +1,5 @@
-MIT License
+<!-- 
+  MIT License
 
 Copyright (c) 2023 Carlos Molero Mata
 
@@ -19,3 +20,33 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+ -->
+
+<div class="root">
+  <div class="md-blocks w-100 container-xxl">
+    <md-blocks-component
+      (onClickEvent)="addBlockElement($event)"
+    ></md-blocks-component>
+  </div>
+  <div class="row container-xxl">
+    <div [ngClass]="[editorToggled ? 'col-12' : 'col-6', 'editor']">
+      <styled-text-area-component
+        [content]="mdContent"
+        (onInputEvent)="updateHtmlContent($event)"
+      ></styled-text-area-component>
+    </div>
+    <i
+      [ngStyle]="editorToggled ? { right: '-1.5%' } : {}"
+      (click)="toggleEditor()"
+      [ngClass]="[
+        !editorToggled ? 'bi bi-arrow-bar-right' : 'bi bi-arrow-bar-left',
+        'toggle'
+      ]"
+    ></i>
+    <div
+      [ngStyle]="editorToggled ? { display: 'none' } : {}"
+      [innerHTML]="htmlContent"
+      class="col-6 preview"
+    ></div>
+  </div>
+</div>

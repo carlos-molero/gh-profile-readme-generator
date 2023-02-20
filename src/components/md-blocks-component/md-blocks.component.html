@@ -1,4 +1,5 @@
-MIT License
+<!-- 
+  MIT License
 
 Copyright (c) 2023 Carlos Molero Mata
 
@@ -19,3 +20,21 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+ -->
+
+<div>
+  <div *ngFor="let d of data">
+    <small style="color: white">{{ d.title }}</small>
+    <div class="d-flex justify-content-start">
+      <div *ngFor="let b of d.blocks">
+        <p
+          (click)="onClick($event)"
+          [attr.data-content]="b.content"
+          class="badge text-bg-dark block"
+        >
+          <i style="font-size: 15px" class="bi bi-plus mr-2"></i>{{ b.label }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
