@@ -22,18 +22,31 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  -->
 
-<div>
-  <div *ngFor="let d of data">
-    <small style="color: white">{{ d.title }}</small>
-    <div class="d-flex justify-content-start">
-      <div *ngFor="let b of d.blocks">
-        <p
-          (click)="onClick($event)"
-          [attr.data-content]="b.content"
-          class="badge text-bg-dark block"
-        >
-          <i style="font-size: 15px" class="bi bi-plus mr-2"></i>{{ b.label }}
-        </p>
+<div class="editor-container-height">
+  <div *ngFor="let d of data; let i = index">
+    <small
+      data-toggle="collapse"
+      type="button"
+      [attr.data-target]="'#collapsable' + i"
+      class="mb-2 pt-2 pb-2"
+      style="color: white"
+    >
+      <i class="bi bi-chevron-expand"></i>{{ d.title }}</small
+    >
+    <div
+      [ngClass]="[i === 1 ? 'show' : '', 'collapse']"
+      [id]="'collapsable' + i"
+    >
+      <div class="row gx-0">
+        <div class="col-auto" *ngFor="let b of d.blocks">
+          <p
+            (click)="onClick($event)"
+            [attr.data-content]="b.content"
+            class="badge text-bg-dark block"
+          >
+            <i style="font-size: 15px" class="bi bi-plus mr-2"></i>{{ b.label }}
+          </p>
+        </div>
       </div>
     </div>
   </div>

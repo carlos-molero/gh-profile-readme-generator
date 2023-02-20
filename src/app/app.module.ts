@@ -30,11 +30,26 @@ import Markdown from 'src/providers/Markdown.provider';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdBlockComponent } from 'src/components/md-blocks-component/md-blocks.component';
+import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 
 @NgModule({
   declarations: [AppComponent, StyledTextAreaComponent, MdBlockComponent],
-  imports: [BrowserModule, ReactiveFormsModule, BrowserAnimationsModule],
-  providers: [Markdown],
+  imports: [
+    BrowserModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    HighlightModule,
+  ],
+  providers: [
+    Markdown,
+    {
+      provide: HIGHLIGHT_OPTIONS,
+      useValue: {
+        fullLibraryLoader: () => import('highlight.js'),
+        themePath: 'assets/styles/atom-one-dark.css',
+      },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

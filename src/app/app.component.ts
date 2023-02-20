@@ -22,6 +22,7 @@
  */
 
 import { Component } from '@angular/core';
+import { HighlightJS } from 'ngx-highlightjs';
 import Markdown from 'src/providers/Markdown.provider';
 
 @Component({
@@ -33,17 +34,22 @@ export class AppComponent {
   mdContent: string = '';
   htmlContent: string = '';
   editorToggled: boolean = false;
-  constructor(private readonly markdown: Markdown) {}
+  constructor(private readonly markdown: Markdown, private hljs: HighlightJS) {}
 
   updateHtmlContent(input: string): void {
     this.htmlContent = this.markdown.toHtml(input);
+    setTimeout(() => {
+      this.hljs.highlightAll().subscribe(() => {});
+    }, 1e2);
   }
 
   addBlockElement(content: string | null): void {
-    let md: string = this.markdown.toMd(this.htmlContent);
-    md += content;
-    this.mdContent = md;
-    this.htmlContent = this.markdown.toHtml(md);
+    if (content) {
+      let md: string = this.markdown.toMd(this.htmlContent);
+      md += content;
+      this.mdContent = md;
+      this.updateHtmlContent(md);
+    }
   }
 
   toggleEditor(): void {

@@ -27,13 +27,27 @@ SOFTWARE.
 .root{
     background-color: @color-bg;
     display: flex;
+    padding: 15px;
     flex-direction: column;
+    color: white;
+
+    h1{
+        font-family: 'Pacifico', cursive;
+    }
+
+    #attribution{
+        text-decoration: none;
+        color: gray;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
 
     .md-blocks{
         margin-bottom: 20px;
     }
     
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     width: 100%;
@@ -49,8 +63,6 @@ SOFTWARE.
     .editor{}
 
     .preview{
-        height: 740px;
-        max-height: 740px;
         overflow-y: scroll;
         color: white;
     }

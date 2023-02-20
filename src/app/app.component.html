@@ -23,30 +23,55 @@ SOFTWARE.
  -->
 
 <div class="root">
-  <div class="md-blocks w-100 container-xxl">
-    <md-blocks-component
-      (onClickEvent)="addBlockElement($event)"
-    ></md-blocks-component>
-  </div>
-  <div class="row container-xxl">
-    <div [ngClass]="[editorToggled ? 'col-12' : 'col-6', 'editor']">
-      <styled-text-area-component
-        [content]="mdContent"
-        (onInputEvent)="updateHtmlContent($event)"
-      ></styled-text-area-component>
+  <div class="row container-fluid gx-0" style="max-width: 1800px">
+    <div class="mb-5 mb-lg-5">
+      <h1>Github Profile Readme Generator</h1>
+      <small
+        ><i
+          >by
+          <a id="attribution" href="https://carlosmolero.dev" target="_blank"
+            >Carlos Molero Mata</a
+          ></i
+        ></small
+      >
     </div>
-    <i
-      [ngStyle]="editorToggled ? { right: '-1.5%' } : {}"
-      (click)="toggleEditor()"
-      [ngClass]="[
-        !editorToggled ? 'bi bi-arrow-bar-right' : 'bi bi-arrow-bar-left',
-        'toggle'
-      ]"
-    ></i>
-    <div
-      [ngStyle]="editorToggled ? { display: 'none' } : {}"
-      [innerHTML]="htmlContent"
-      class="col-6 preview"
-    ></div>
+    <div class="col-12 col-lg-4">
+      <div class="md-blocks w-100">
+        <md-blocks-component
+          (onClickEvent)="addBlockElement($event)"
+        ></md-blocks-component>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8 d-flex justify-content-center gx-0 gx-lg-auto">
+      <div class="row">
+        <div
+          [ngClass]="[
+            editorToggled ? 'col-lg-12' : 'col-lg-6',
+            'editor',
+            'col-12'
+          ]"
+        >
+          <styled-text-area-component
+            [content]="mdContent"
+            (onInputEvent)="updateHtmlContent($event)"
+          ></styled-text-area-component>
+        </div>
+        <i
+          [ngStyle]="editorToggled ? { right: '-2.5%' } : {}"
+          (click)="toggleEditor()"
+          [ngClass]="[
+            !editorToggled ? 'bi bi-arrow-bar-right' : 'bi bi-arrow-bar-left',
+            'toggle',
+            'd-none',
+            'd-lg-flex'
+          ]"
+        ></i>
+        <div
+          [ngStyle]="editorToggled ? { display: 'none' } : {}"
+          [innerHTML]="htmlContent"
+          class="col-lg-6 col-12 mt-5 mt-lg-0 preview editor-container-height"
+        ></div>
+      </div>
+    </div>
   </div>
 </div>
