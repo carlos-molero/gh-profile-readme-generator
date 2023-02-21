@@ -30,16 +30,23 @@ SOFTWARE.
     padding: 15px;
     flex-direction: column;
     color: white;
-
-    h1{
-        font-family: 'Pacifico', cursive;
-    }
-
-    #attribution{
-        text-decoration: none;
-        color: gray;
-        &:hover{
-            text-decoration: underline;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+    .hero-title {
+        h1{
+            font-family: 'Pacifico', cursive;
+        }
+    
+        #attribution{
+            text-decoration: none;
+            color: gray;
+            &:hover{
+                text-decoration: underline;
+            }
         }
     }
 
@@ -47,11 +54,6 @@ SOFTWARE.
         margin-bottom: 20px;
     }
     
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
     .row{
         position: relative;
         display: flex;
@@ -59,8 +61,6 @@ SOFTWARE.
         justify-content: center;
         width: 100%;
     }
-
-    .editor{}
 
     .preview{
         overflow-y: scroll;
