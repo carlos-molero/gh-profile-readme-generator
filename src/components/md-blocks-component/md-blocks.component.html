@@ -39,13 +39,19 @@ SOFTWARE.
     >
       <div class="row gx-0">
         <div class="col-auto" *ngFor="let b of d.blocks">
-          <p
-            (click)="onClick($event)"
-            [attr.data-content]="b.content"
-            class="badge text-bg-dark block"
-          >
-            <i style="font-size: 15px" class="bi bi-plus mr-2"></i>{{ b.label }}
-          </p>
+          <div>
+            <p
+              (click)="onClick($event)"
+              [attr.data-content]="b.content"
+              class="badge text-bg-dark block"
+            >
+              <i
+                style="font-size: 15px; pointer-events: none"
+                class="bi bi-plus mr-2"
+              ></i
+              >{{ b.label }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
