@@ -22,9 +22,14 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
-@s:   ~"only screen and (min-width: 576px)";
-@m:    ~"only screen and (min-width: 768px)";
-@l:    ~"only screen and (min-width: 992px)";
-@xl:    ~"only screen and (min-width: 1200px)";
-@xxl:    ~"only screen and (min-width: 1400px)";
+textarea{
+    width: 100%;
+    border: none;
+    padding: 10px;
+    background-color: var(--bs-dark);
+    resize: none;
+    color: white;
+    &:focus{
+        outline: none;
+    }
+}

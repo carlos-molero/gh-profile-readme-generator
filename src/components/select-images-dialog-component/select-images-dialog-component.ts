@@ -21,19 +21,18 @@
  * SOFTWARE.
  */
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Modal } from 'bootstrap';
 
 @Component({
-  selector: 'styled-text-area-component',
-  templateUrl: './styled-text-area.component.html',
-  styleUrls: ['./styled-text-area.component.scss'],
+  selector: './select-images-dialog-component',
+  templateUrl: './select-images-dialog-component.html',
+  styleUrls: ['./select-images-dialog-component.scss'],
 })
-export class StyledTextAreaComponent {
-  @Input() disabled?: boolean = false;
-  @Input() content = '';
-  @Output() onInputEvent = new EventEmitter<string>();
-
-  onInput(e: Event): void {
-    this.onInputEvent.emit((e.target as HTMLTextAreaElement).value);
+export class SelectImagesDialogComponent implements OnInit {
+  modal: Modal | undefined;
+  ngOnInit(): void {
+    this.modal = new Modal($('#modal')[0]);
+    this.modal.show();
   }
 }

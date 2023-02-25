@@ -26,14 +26,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { StyledTextAreaComponent } from 'src/components/styled-text-area-component/styles-text-area.component';
 import Markdown from 'src/providers/Markdown.provider';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MdBlockComponent } from 'src/components/md-blocks-component/md-blocks.component';
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
+import { SelectImagesDialogComponent } from 'src/components/select-images-dialog-component/select-images-dialog-component';
 
 @NgModule({
-  declarations: [AppComponent, StyledTextAreaComponent, MdBlockComponent],
+  declarations: [
+    AppComponent,
+    StyledTextAreaComponent,
+    MdBlockComponent,
+    SelectImagesDialogComponent,
+  ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,

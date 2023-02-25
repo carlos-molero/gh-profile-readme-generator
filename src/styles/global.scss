@@ -22,27 +22,28 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@import url("../../styles/queries.less");
-@import url("../../styles/components/md-editor/variables.less");
 
-.md-editor__blocks{
-    margin-bottom: 20px;
-    .block{
-      cursor: pointer;
-      padding: 10px;
-      width: 135px;
-      margin: 5px;
-    }
+.heading{
+  font-family: 'Pacifico';
 }
 
-@media @l {
-    .md-editor__blocks {
-      min-height: @desktop__editor-height !important;
-      max-height: @desktop__editor-height !important;
-    }
+body{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 2px;
   }
   
-  .md-editor__blocks {
-    min-height: @mobile__editor-min-height;
-    max-height: @mobile__editor-max-height;
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }

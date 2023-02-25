@@ -22,16 +22,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@import url("../../styles/theme.less");
+@use "../../styles/components/md-editor/variables.scss" as variables;
+@use "../../styles/queries.scss" as queries;
 
-textarea{
-    width: 100%;
-    border: none;
-    padding: 10px;
-    background-color: @color-bg-light;
-    resize: none;
-    color: white;
-    &:focus{
-        outline: none;
+.md-editor__blocks{
+    min-height: variables.$mobile-editor-min-height;
+    max-height: variables.$mobile-editor-max-height;
+    margin-bottom: 20px;
+    .block{
+      cursor: pointer;
+      padding: 10px;
+      width: 135px;
+      margin: 5px;
     }
 }
+
+@include queries.l() {
+    .md-editor__blocks {
+      min-height: variables.$desktop-editor-height !important;
+      max-height: variables.$desktop-editor-height !important;
+    }
+  }

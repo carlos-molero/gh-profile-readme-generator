@@ -22,5 +22,33 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@color-bg: #20201F;
-@color-bg-light: #2D2D2B;
+
+@mixin s(){
+    @media only screen and (min-width: 576px){
+        @content;
+    }
+}
+
+@mixin m(){
+    @media only screen and (min-width: 768px){
+        @content;
+    }
+}
+
+@mixin l(){
+    @media only screen and (min-width: 992px){
+        @content;
+    }
+}
+
+@mixin xl(){
+    @media only screen and (min-width: 1200px){
+        @content;
+    }
+}
+
+@mixin xxl(){
+    @media only screen and (min-width: 1400px){
+        @content;
+    }
+}

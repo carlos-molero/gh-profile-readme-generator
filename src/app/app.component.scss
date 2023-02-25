@@ -22,27 +22,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-.heading{
-  font-family: 'Pacifico';
-}
+@use "../styles/components/md-editor/md-editor.scss";
 
-body{
-    margin: 0;
-    box-sizing: border-box;
-}
 
-::-webkit-scrollbar {
-    width: 2px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #f1f1f1;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
+.root{
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+    .hero-title {    
+        a{
+            text-decoration: none;
+            color: gray;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .row{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+}
