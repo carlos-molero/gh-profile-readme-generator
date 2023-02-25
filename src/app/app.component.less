@@ -22,7 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@import url(../theme.less);
+@import url("../styles/components/md-editor/md-editor.less");
+
 
 .root{
     background-color: @color-bg;
@@ -36,22 +37,14 @@ SOFTWARE.
     width: 100%;
     justify-content: center;
     
-    .hero-title {
-        h1{
-            font-family: 'Pacifico', cursive;
-        }
-    
-        #attribution{
+    .hero-title {    
+        a{
             text-decoration: none;
             color: gray;
             &:hover{
                 text-decoration: underline;
             }
         }
-    }
-
-    .md-blocks{
-        margin-bottom: 20px;
     }
     
     .row{
@@ -60,25 +53,5 @@ SOFTWARE.
         align-items: center;
         justify-content: center;
         width: 100%;
-    }
-
-    .preview{
-        overflow-y: scroll;
-        color: white;
-    }
-
-    .toggle{
-        position: absolute;
-        width: 40px;
-        height: 40px;
-        background-color: black;
-        margin-right: 1.5em;
-        border-radius: 50%;
-        cursor: pointer;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        right: auto;
     }
 }

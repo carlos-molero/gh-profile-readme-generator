@@ -25,7 +25,7 @@ SOFTWARE.
 <div class="root">
   <div class="row container-fluid gx-0" style="max-width: 1800px">
     <div class="hero-title mb-5 mb-lg-5">
-      <h1>Github Profile Readme Generator</h1>
+      <h1 class="heading">Github Profile Readme Generator</h1>
       <small
         ><i
           >by
@@ -36,7 +36,7 @@ SOFTWARE.
       >
     </div>
     <div class="col-12 col-lg-4">
-      <div class="md-blocks w-100">
+      <div>
         <md-blocks-component
           (onClickEvent)="addBlockElement($event)"
         ></md-blocks-component>
@@ -47,11 +47,12 @@ SOFTWARE.
         <div
           [ngClass]="[
             editorToggled ? 'col-lg-12' : 'col-lg-6',
-            'editor',
+            'md-editor__input',
             'col-12'
           ]"
         >
           <styled-text-area-component
+            class="hello-world"
             [content]="mdContent"
             (onInputEvent)="updateHtmlContent($event)"
           ></styled-text-area-component>
@@ -61,15 +62,14 @@ SOFTWARE.
           (click)="toggleEditor()"
           [ngClass]="[
             !editorToggled ? 'bi bi-arrow-bar-right' : 'bi bi-arrow-bar-left',
-            'toggle',
-            'd-none',
+            'md-editor__toggle',
             'd-lg-flex'
           ]"
         ></i>
         <div
           [ngStyle]="editorToggled ? { display: 'none' } : {}"
           [innerHTML]="htmlContent"
-          class="col-lg-6 col-12 mt-5 mt-lg-0 preview editor-container-height"
+          class="col-lg-6 col-12 mt-5 mt-lg-0 md-editor__preview"
         ></div>
       </div>
     </div>
