@@ -40,7 +40,7 @@ export class AppComponent {
     this.htmlContent = this.markdown.toHtml(input);
     setTimeout(() => {
       this.hljs.highlightAll().subscribe(() => {});
-    }, 1e2);
+    }, 1);
   }
 
   addBlockElement(content: string | null): void {

@@ -26,7 +26,7 @@
             "allowedCommonJsDependencies": ["showdown", "highlight.js"],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.less",
+              "src/styles/global.less",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
             ]
