@@ -3,6 +3,7 @@ export type Block = {
   content: string;
   trigger?: 'modal';
   id?: any;
+  iconClass?: string;
 };
 
 export type BlockSection = {
@@ -31,6 +32,7 @@ const blocks: BlockSection[] = [
         content: '',
         trigger: 'modal',
         id: '#languages-frameworks-libraries-0',
+        iconClass: 'bi bi-code-slash',
       },
     ],
   },

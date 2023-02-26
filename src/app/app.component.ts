@@ -37,8 +37,14 @@ export class AppComponent {
   editorToggled: boolean = false;
   currentLanguagesFrameworksAndLibrariesSectionMd = '';
   languagesFrameworksAndLibrariesDialogData =
-    languagesFrameworksAndLibrariesData;
+    languagesFrameworksAndLibrariesData.sort((a, b) =>
+      a.label.localeCompare(b.label)
+    );
   constructor(private readonly markdown: Markdown, private hljs: HighlightJS) {}
+
+  onMdChange(content: string): void {
+    this.updateHtmlContent(content);
+  }
 
   updateHtmlContent(input: string): void {
     this.htmlContent = this.markdown.toHtml(input);
@@ -52,16 +58,15 @@ export class AppComponent {
       let md: string = this.markdown.toMd(this.htmlContent);
       md += element;
       this.mdContent = md;
+      this.updateHtmlContent(this.mdContent);
     }
   }
 
   addImagesElement({ title, urls }: { title: string; urls: string[] }): void {
-    let element = `\n\n<!-- ${title} -->`;
+    let element = `<!-- ${title} -->`;
     element += `\n\n## ${title}\n\n`;
-    element += `${urls.map(
-      (url) => `<img width="50px" height="50px" src='${url}'/>`
-    )}`;
-    element += `\n\n<!-- ${title} -->`;
+    element += `${urls.map((url) => `![null](<${url}> =50pxx50px)`).join('')}`;
+    element += `<!-- ${title} -->`;
 
     if (this.currentLanguagesFrameworksAndLibrariesSectionMd !== '') {
       this.mdContent = this.mdContent.replace(
@@ -72,6 +77,7 @@ export class AppComponent {
       this.mdContent += element;
     }
     this.currentLanguagesFrameworksAndLibrariesSectionMd = element;
+    this.updateHtmlContent(this.mdContent);
   }
 
   toggleEditor(): void {

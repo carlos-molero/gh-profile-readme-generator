@@ -29,9 +29,18 @@ SOFTWARE.
         <h5 class="modal-title">{{title}}</h5>
       </div>
       <div class="modal-body">
-        <p>{{description}}</p>
-        <form onsubmit="onSubmit($event)" class="form row mx-auto">
-          <div class="form-check col-auto mt-4" *ngFor="let v of values">
+        <p><i>{{description}}</i></p>
+        <form
+          style="max-height: 400px !important; overflow-y: scroll"
+          onsubmit="onSubmit($event)"
+          class="form row mx-auto"
+        >
+          <div
+            data-bs-toggle="tooltip"
+            title="{{v.label}}"
+            class="form-check col-auto mt-4"
+            *ngFor="let v of values"
+          >
             <input
               class="form-check-input"
               id="{{v.label}}"
@@ -39,12 +48,18 @@ SOFTWARE.
               type="checkbox"
               value="{{v.value}}"
             />
-            <img width="50px" height="50px" src="{{v.value}}" />
+            <img
+              width="50px"
+              height="50px"
+              alt="{{v.label}}"
+              src="{{v.value}}"
+            />
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button
+          style="color: white !important"
           rel="js-submit-btn"
           type="button"
           class="btn btn-primary"

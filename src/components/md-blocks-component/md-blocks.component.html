@@ -48,8 +48,8 @@ SOFTWARE.
               class="badge text-bg-dark block"
             >
               <i
-                style="font-size: 15px; pointer-events: none"
-                class="bi bi-plus mr-2"
+                style="font-size: 15px; pointer-events: none; margin-right: 3px"
+                [ngClass]="[!b.iconClass ? 'bi bi-plus' : b.iconClass]"
               ></i
               >{{ b.label }}
             </p>

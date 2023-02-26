@@ -31,9 +31,10 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class StyledTextAreaComponent {
   @Input() disabled?: boolean = false;
   @Input() content = '';
-  @Output() contentChange = new EventEmitter<string>();
+  @Output() onInputEvent = new EventEmitter<string>();
 
-  onInput(e: Event): void {
-    this.contentChange.emit((e.target as HTMLTextAreaElement).value);
+  onInput(e: Event) {
+    this.content = (e.target as HTMLTextAreaElement).value;
+    this.onInputEvent.emit(this.content);
   }
 }

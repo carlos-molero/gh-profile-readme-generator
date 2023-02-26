@@ -52,8 +52,8 @@ SOFTWARE.
           ]"
         >
           <styled-text-area-component
-            class="hello-world"
-            [(content)]="mdContent"
+            [content]="mdContent"
+            (onInputEvent)="onMdChange($event)"
           ></styled-text-area-component>
         </div>
         <i
@@ -69,9 +69,7 @@ SOFTWARE.
           [ngStyle]="editorToggled ? { display: 'none' } : {}"
           [innerHTML]="htmlContent"
           class="col-lg-6 col-12 mt-5 mt-lg-0 md-editor__preview"
-        >
-          {{ updateHtmlContent(mdContent) }}
-        </div>
+        ></div>
       </div>
     </div>
   </div>
