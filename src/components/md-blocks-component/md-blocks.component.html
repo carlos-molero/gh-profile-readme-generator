@@ -37,7 +37,9 @@ SOFTWARE.
       [ngClass]="[i === 1 ? 'show' : '', 'collapse']"
       [id]="'collapsable-' + i"
     >
-      <div class="row gx-0">
+      <div
+        class="row gx-0 d-flex justify-content-center justify-content-md-start"
+      >
         <div class="col-auto" *ngFor="let b of d.blocks">
           <div>
             <p

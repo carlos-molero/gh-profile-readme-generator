@@ -24,7 +24,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": ["showdown", "highlight.js"],
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.png", "src/assets"],
             "styles": [
               "src/styles/global.scss",
               "src/styles/bootstrap.scss",
@@ -78,6 +78,9 @@
           "options": {
             "browserTarget": "gh-profile-readme-generator:build"
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
