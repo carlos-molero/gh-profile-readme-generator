@@ -25,9 +25,9 @@ SOFTWARE.
 <div class="md-editor__blocks">
   <div *ngFor="let d of data; let i = index">
     <small
-      data-toggle="collapse"
+      data-bs-toggle="collapse"
       type="button"
-      [attr.data-target]="'#collapsable' + i"
+      [attr.data-bs-target]="'#collapsable-' + i"
       class="mb-2 pt-2 pb-2"
       style="color: white"
     >
@@ -35,7 +35,7 @@ SOFTWARE.
     >
     <div
       [ngClass]="[i === 1 ? 'show' : '', 'collapse']"
-      [id]="'collapsable' + i"
+      [id]="'collapsable-' + i"
     >
       <div class="row gx-0">
         <div class="col-auto" *ngFor="let b of d.blocks">
@@ -43,6 +43,8 @@ SOFTWARE.
             <p
               (click)="onClick($event)"
               [attr.data-content]="b.content"
+              [attr.data-bs-toggle]="b.trigger"
+              [attr.data-bs-target]="b.id"
               class="badge text-bg-dark block"
             >
               <i

@@ -24,11 +24,14 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": ["showdown", "highlight.js"],
-            "assets": ["src/favicon.ico", "src/assets/**/*"],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "src/styles/global.scss",
               "src/styles/bootstrap.scss",
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+            ],
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {

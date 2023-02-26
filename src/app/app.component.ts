@@ -24,6 +24,7 @@
 import { Component } from '@angular/core';
 import { HighlightJS } from 'ngx-highlightjs';
 import Markdown from 'src/providers/Markdown.provider';
+import { languagesFrameworksAndLibrariesData } from './data';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +35,9 @@ export class AppComponent {
   mdContent: string = '';
   htmlContent: string = '';
   editorToggled: boolean = false;
+  currentLanguagesFrameworksAndLibrariesSectionMd = '';
+  languagesFrameworksAndLibrariesDialogData =
+    languagesFrameworksAndLibrariesData;
   constructor(private readonly markdown: Markdown, private hljs: HighlightJS) {}
 
   updateHtmlContent(input: string): void {
@@ -43,13 +47,31 @@ export class AppComponent {
     }, 1);
   }
 
-  addBlockElement(content: string | null): void {
-    if (content) {
+  addBlockElement(element: string | null): void {
+    if (element) {
       let md: string = this.markdown.toMd(this.htmlContent);
-      md += content;
+      md += element;
       this.mdContent = md;
-      this.updateHtmlContent(md);
     }
+  }
+
+  addImagesElement({ title, urls }: { title: string; urls: string[] }): void {
+    let element = `\n\n<!-- ${title} -->`;
+    element += `\n\n## ${title}\n\n`;
+    element += `${urls.map(
+      (url) => `<img width="50px" height="50px" src='${url}'/>`
+    )}`;
+    element += `\n\n<!-- ${title} -->`;
+
+    if (this.currentLanguagesFrameworksAndLibrariesSectionMd !== '') {
+      this.mdContent = this.mdContent.replace(
+        this.currentLanguagesFrameworksAndLibrariesSectionMd,
+        element
+      );
+    } else {
+      this.mdContent += element;
+    }
+    this.currentLanguagesFrameworksAndLibrariesSectionMd = element;
   }
 
   toggleEditor(): void {

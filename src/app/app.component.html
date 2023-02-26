@@ -53,8 +53,7 @@ SOFTWARE.
         >
           <styled-text-area-component
             class="hello-world"
-            [content]="mdContent"
-            (onInputEvent)="updateHtmlContent($event)"
+            [(content)]="mdContent"
           ></styled-text-area-component>
         </div>
         <i
@@ -70,9 +69,18 @@ SOFTWARE.
           [ngStyle]="editorToggled ? { display: 'none' } : {}"
           [innerHTML]="htmlContent"
           class="col-lg-6 col-12 mt-5 mt-lg-0 md-editor__preview"
-        ></div>
+        >
+          {{ updateHtmlContent(mdContent) }}
+        </div>
       </div>
     </div>
   </div>
-  <select-images-dialog-component></select-images-dialog-component>
+  <select-images-dialog-component
+    id="languages-frameworks-libraries"
+    section-title="Languages, frameworks and libraries"
+    title="What are your known languages, libraries, frameworks and such?"
+    description="Select with which languages, libraries, frameworks and databases are you skilled with."
+    [values]="languagesFrameworksAndLibrariesDialogData"
+    (onSubmitEvent)="addImagesElement($event)"
+  ></select-images-dialog-component>
 </div>

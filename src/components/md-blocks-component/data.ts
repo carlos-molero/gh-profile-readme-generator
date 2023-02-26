@@ -1,7 +1,8 @@
 export type Block = {
   label: string;
   content: string;
-  trigger?: 'dialog';
+  trigger?: 'modal';
+  id?: any;
 };
 
 export type BlockSection = {
@@ -28,7 +29,8 @@ const blocks: BlockSection[] = [
       {
         label: 'Languages',
         content: '',
-        trigger: 'dialog',
+        trigger: 'modal',
+        id: '#languages-frameworks-libraries-0',
       },
     ],
   },

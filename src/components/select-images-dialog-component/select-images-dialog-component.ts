@@ -21,18 +21,49 @@
  * SOFTWARE.
  */
 
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Modal } from 'bootstrap';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
+export type SelectImagesDialogItem = {
+  value: string;
+  label: string;
+  checked: boolean;
+};
 @Component({
   selector: './select-images-dialog-component',
   templateUrl: './select-images-dialog-component.html',
   styleUrls: ['./select-images-dialog-component.scss'],
 })
 export class SelectImagesDialogComponent implements OnInit {
-  modal: Modal | undefined;
+  @Input() id: string = '';
+  @Input() values: SelectImagesDialogItem[] = [];
+  @Input('section-title') sectionTitle: string = '';
+  @Input() title: string = '';
+  @Input() description: string = '';
+  @Input() confirmButtonTxt: string = 'Add';
+  @Input() cancelButtonTxt: string = 'Cancel';
+
+  @Output() onSubmitEvent = new EventEmitter<{
+    title: string;
+    urls: string[];
+  }>();
+
+  form: HTMLFormElement | null = null;
+  submitBtn: HTMLButtonElement | null = null;
+
   ngOnInit(): void {
-    this.modal = new Modal($('#modal')[0]);
-    this.modal.show();
+    this.form = document.querySelector('.form');
+    this.submitBtn = document.querySelector("[rel='js-submit-btn']");
+    this.submitBtn?.addEventListener('click', () => {
+      this.onSubmit();
+    });
+  }
+
+  onSubmit(): void {
+    const formData = new FormData(this.form!);
+    const data = Object.fromEntries(formData as any);
+    this.onSubmitEvent.emit({
+      title: this.sectionTitle,
+      urls: Object.keys(data).map((k: string) => data[k]),
+    });
   }
 }

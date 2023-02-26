@@ -21,19 +21,8 @@
  * SOFTWARE.
  */
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-
-@Component({
-  selector: 'styled-text-area-component',
-  templateUrl: './styled-text-area.component.html',
-  styleUrls: ['./styled-text-area.component.scss'],
-})
-export class StyledTextAreaComponent {
-  @Input() disabled?: boolean = false;
-  @Input() content = '';
-  @Output() onInputEvent = new EventEmitter<string>();
-
-  onInput(e: Event): void {
-    this.onInputEvent.emit((e.target as HTMLTextAreaElement).value);
+export default class UrlUtils {
+  static getAsset(path: string): string {
+    return `http://localhost:4200/assets/${path}`;
   }
 }
