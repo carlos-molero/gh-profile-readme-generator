@@ -1,5 +1,5 @@
-<!-- 
-  MIT License
+/*
+MIT License
 
 Copyright (c) 2023 Carlos Molero Mata
 
@@ -20,42 +20,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
- -->
+*/
 
-<div class="md-editor__blocks">
-  <div *ngFor="let d of data; let i = index">
-    <small
-      data-bs-toggle="collapse"
-      type="button"
-      [attr.data-bs-target]="'#collapsable-' + i"
-      class="mb-2 pt-2 pb-2"
-      style="color: white"
-    >
-      <i class="bi bi-chevron-expand"></i>{{ d.title }}</small
-    >
-    <div
-      [ngClass]="[i === 1 ? 'show' : '', 'collapse']"
-      [id]="'collapsable-' + i"
-    >
-      <div class="row gx-0">
-        <div class="col-auto" *ngFor="let b of d.blocks">
-          <div>
-            <p
-              (click)="onClick($event)"
-              [attr.data-content]="b.content"
-              [attr.data-bs-toggle]="b.trigger"
-              [attr.data-bs-target]="b.id"
-              class="badge text-bg-dark block"
-            >
-              <i
-                style="font-size: 15px; pointer-events: none"
-                class="bi bi-plus mr-2"
-              ></i
-              >{{ b.label }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+$color-bg: #20201F;
+$color-bg-light: #2D2D2B;

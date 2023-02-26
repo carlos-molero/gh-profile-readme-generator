@@ -21,22 +21,19 @@
  * SOFTWARE.
  */
 
-import { Component, EventEmitter, Output } from '@angular/core';
-import blocks from './data';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'md-blocks-component',
-  templateUrl: './md-blocks.component.html',
-  styleUrls: ['./md-blocks.component.scss'],
+  selector: 'styled-text-area-component',
+  templateUrl: './styled-text-area.component.html',
+  styleUrls: ['./styled-text-area.component.scss'],
 })
-export class MdBlockComponent {
-  data = blocks;
+export class StyledTextAreaComponent {
+  @Input() disabled?: boolean = false;
+  @Input() content = '';
+  @Output() contentChange = new EventEmitter<string>();
 
-  @Output() onClickEvent = new EventEmitter<string | null>();
-
-  onClick(e: Event): void {
-    const target = e.target as HTMLElement;
-    const content: string | null = target.getAttribute('data-content');
-    this.onClickEvent.emit(content);
+  onInput(e: Event): void {
+    this.contentChange.emit((e.target as HTMLTextAreaElement).value);
   }
 }

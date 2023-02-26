@@ -20,23 +20,3 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-import { Component, EventEmitter, Output } from '@angular/core';
-import blocks from './data';
-
-@Component({
-  selector: 'md-blocks-component',
-  templateUrl: './md-blocks.component.html',
-  styleUrls: ['./md-blocks.component.scss'],
-})
-export class MdBlockComponent {
-  data = blocks;
-
-  @Output() onClickEvent = new EventEmitter<string | null>();
-
-  onClick(e: Event): void {
-    const target = e.target as HTMLElement;
-    const content: string | null = target.getAttribute('data-content');
-    this.onClickEvent.emit(content);
-  }
-}

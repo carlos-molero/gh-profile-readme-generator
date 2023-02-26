@@ -7,7 +7,7 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "less"
+          "style": "scss"
         }
       },
       "root": "",
@@ -22,13 +22,16 @@
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "less",
+            "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": ["showdown", "highlight.js"],
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles/global.less",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles/global.scss",
+              "src/styles/bootstrap.scss",
               "./node_modules/bootstrap-icons/font/bootstrap-icons.css"
+            ],
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -74,17 +77,6 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "gh-profile-readme-generator:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "tsconfig.spec.json",
-            "inlineStyleLanguage": "less",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.less"],
-            "scripts": []
           }
         }
       }

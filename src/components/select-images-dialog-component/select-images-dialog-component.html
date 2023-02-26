@@ -22,39 +22,39 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  -->
 
-<div class="md-editor__blocks">
-  <div *ngFor="let d of data; let i = index">
-    <small
-      data-bs-toggle="collapse"
-      type="button"
-      [attr.data-bs-target]="'#collapsable-' + i"
-      class="mb-2 pt-2 pb-2"
-      style="color: white"
-    >
-      <i class="bi bi-chevron-expand"></i>{{ d.title }}</small
-    >
-    <div
-      [ngClass]="[i === 1 ? 'show' : '', 'collapse']"
-      [id]="'collapsable-' + i"
-    >
-      <div class="row gx-0">
-        <div class="col-auto" *ngFor="let b of d.blocks">
-          <div>
-            <p
-              (click)="onClick($event)"
-              [attr.data-content]="b.content"
-              [attr.data-bs-toggle]="b.trigger"
-              [attr.data-bs-target]="b.id"
-              class="badge text-bg-dark block"
-            >
-              <i
-                style="font-size: 15px; pointer-events: none"
-                class="bi bi-plus mr-2"
-              ></i
-              >{{ b.label }}
-            </p>
+<div class="modal fade" tabindex="-1" [attr.id]="id + '-0'" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{title}}</h5>
+      </div>
+      <div class="modal-body">
+        <p>{{description}}</p>
+        <form onsubmit="onSubmit($event)" class="form row mx-auto">
+          <div class="form-check col-auto mt-4" *ngFor="let v of values">
+            <input
+              class="form-check-input"
+              id="{{v.label}}"
+              name="{{v.label}}"
+              type="checkbox"
+              value="{{v.value}}"
+            />
+            <img width="50px" height="50px" src="{{v.value}}" />
           </div>
-        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          rel="js-submit-btn"
+          type="button"
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+        >
+          {{confirmButtonTxt}}
+        </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          {{cancelButtonTxt}}
+        </button>
       </div>
     </div>
   </div>

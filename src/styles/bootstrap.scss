@@ -1,0 +1,21 @@
+$body-bg: #20201F;
+
+$theme-colors: (
+  "primary": #ff4530,
+  "secondary": #6c757d,
+  "warning": #ffc107,
+  "success": #28a745,
+  "danger": #dc3545,
+  "info": #17a2b8,
+  "light": #f8f9fa,
+  "dark": #343a40
+);
+$enable-rounded: false;
+
+$modal-content-bg:  $body-bg;
+$modal-header-border-width: 0px;
+$modal-footer-border-width: 0px;
+
+$form-check-input-bg: #343a40;
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

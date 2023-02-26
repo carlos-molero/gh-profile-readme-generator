@@ -22,16 +22,35 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@import url("../../styles/theme.less");
+@use "../styles/components/md-editor/md-editor.scss";
 
-textarea{
-    width: 100%;
-    border: none;
-    padding: 10px;
-    background-color: @color-bg-light;
-    resize: none;
+
+.root{
+    display: flex;
+    padding: 15px;
+    flex-direction: column;
     color: white;
-    &:focus{
-        outline: none;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    
+    .hero-title {    
+        a{
+            text-decoration: none;
+            color: gray;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .row{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 }

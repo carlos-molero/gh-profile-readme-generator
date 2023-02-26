@@ -22,36 +22,24 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@import url("../styles/components/md-editor/md-editor.less");
+@use "../../styles/components/md-editor/variables.scss" as variables;
+@use "../../styles/queries.scss" as queries;
 
-
-.root{
-    background-color: @color-bg;
-    display: flex;
-    padding: 15px;
-    flex-direction: column;
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    
-    .hero-title {    
-        a{
-            text-decoration: none;
-            color: gray;
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-    }
-    
-    .row{
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+.md-editor__blocks{
+    min-height: variables.$mobile-editor-min-height;
+    max-height: variables.$mobile-editor-max-height;
+    margin-bottom: 20px;
+    .block{
+      cursor: pointer;
+      padding: 10px;
+      width: 135px;
+      margin: 5px;
     }
 }
+
+@include queries.l() {
+    .md-editor__blocks {
+      min-height: variables.$desktop-editor-height !important;
+      max-height: variables.$desktop-editor-height !important;
+    }
+  }
