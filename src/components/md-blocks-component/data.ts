@@ -62,9 +62,9 @@ const blocks: BlockSection[] = [
       {
         label: 'Table',
         content: `
-| H | H | H | H |
+| H     | H     | H     | H     |
 | :---: | :---: | :---: | :---: |
-|  |  |  | |
+|       |       |       |       |
     `,
       },
       {

@@ -10,11 +10,20 @@ $theme-colors: (
   "light": #f8f9fa,
   "dark": #343a40
 );
+
+
 $enable-rounded: false;
+
+$btn-close-padding-x: 10px;
+$btn-close-color: white;
 
 $modal-content-bg:  $body-bg;
 $modal-header-border-width: 0px;
 $modal-footer-border-width: 0px;
+
+$toast-background-color: $body-bg;
+$toast-color: white;
+$toast-header-color: white;
 
 $form-check-input-bg: #343a40;
 

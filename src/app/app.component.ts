@@ -21,19 +21,24 @@
  * SOFTWARE.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import Toast from 'bootstrap/js/dist/toast';
 import { HighlightJS } from 'ngx-highlightjs';
 import Markdown from 'src/providers/Markdown.provider';
 import { languagesFrameworksAndLibrariesData } from './data';
+import copy from 'copy-to-clipboard';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   mdContent: string = '';
   htmlContent: string = '';
+  toast: Toast | undefined;
+  toastMessage: string = '';
+  toastType: string = '';
   editorToggled: boolean = false;
   currentLanguagesFrameworksAndLibrariesSectionMd = '';
   languagesFrameworksAndLibrariesDialogData =
@@ -41,6 +46,18 @@ export class AppComponent {
       a.label.localeCompare(b.label)
     );
   constructor(private readonly markdown: Markdown, private hljs: HighlightJS) {}
+
+  ngOnInit(): void {
+    Toast.Default.autohide = true;
+    this.toast = new Toast(document.querySelector('#toast')! as HTMLElement);
+  }
+
+  onCopyBtnClick(): void {
+    this.toastMessage = 'Copied to the clipboard!';
+    this.toastType = 'success';
+    copy(this.htmlContent);
+    this.toast?.show();
+  }
 
   onMdChange(content: string): void {
     this.updateHtmlContent(content);
@@ -65,7 +82,7 @@ export class AppComponent {
   addImagesElement({ title, urls }: { title: string; urls: string[] }): void {
     let element = `<!-- ${title} -->`;
     element += `\n\n## ${title}\n\n`;
-    element += `${urls.map((url) => `![null](<${url}> =50pxx50px)`).join('')}`;
+    element += `${urls.map((url) => `![alt](<${url}> =50pxx50px)`).join('')}`;
     element += `<!-- ${title} -->`;
 
     if (this.currentLanguagesFrameworksAndLibrariesSectionMd !== '') {

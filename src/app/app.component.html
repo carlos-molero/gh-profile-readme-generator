@@ -35,7 +35,7 @@ SOFTWARE.
         ></small
       >
     </div>
-    <div class="col-12 col-lg-4">
+    <div class="col-12 col-lg-4 d-flex flex-column">
       <div>
         <md-blocks-component
           (onClickEvent)="addBlockElement($event)"
@@ -51,6 +51,15 @@ SOFTWARE.
             'col-12'
           ]"
         >
+          <button
+            (click)="onCopyBtnClick()"
+            type="button"
+            class="btn btn-primary mb-2 align-self-end"
+            style="color: white"
+          >
+            <i class="bi bi-clipboard" style="margin-right: 3px"></i
+            ><small>Copy HTML</small>
+          </button>
           <styled-text-area-component
             [content]="mdContent"
             (onInputEvent)="onMdChange($event)"
@@ -81,4 +90,20 @@ SOFTWARE.
     [values]="languagesFrameworksAndLibrariesDialogData"
     (onSubmitEvent)="addImagesElement($event)"
   ></select-images-dialog-component>
+  <div
+    id="toast"
+    [ngClass]="['toast position-fixed', 'bg-' + toastType]"
+    role="alert"
+    style="bottom: 1%; right: 1%"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="toast"
+      aria-label="Close"
+    ></button>
+    <div class="toast-body">{{ toastMessage }}</div>
+  </div>
 </div>
