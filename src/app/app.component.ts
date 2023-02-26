@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
     this.toast?.show();
   }
 
-  onMdChange(content: string): void {
+  onMdInput(content: string): void {
     this.updateHtmlContent(content);
   }
 
