@@ -43,8 +43,8 @@ export class SelectImagesDialogComponent implements OnInit {
   @Input() cancelButtonTxt: string = 'Cancel';
 
   @Output() onSubmitEvent = new EventEmitter<{
-    title: string;
-    urls: string[];
+    sectionTitle: string;
+    imageUrls: string[];
   }>();
 
   form: HTMLFormElement | null = null;
@@ -62,8 +62,8 @@ export class SelectImagesDialogComponent implements OnInit {
     const formData = new FormData(this.form!);
     const data = Object.fromEntries(formData as any);
     this.onSubmitEvent.emit({
-      title: this.sectionTitle,
-      urls: Object.keys(data).map((k: string) => data[k]),
+      sectionTitle: this.sectionTitle,
+      imageUrls: Object.keys(data).map((k: string) => data[k]),
     });
   }
 }

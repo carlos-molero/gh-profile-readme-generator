@@ -67,7 +67,7 @@ SOFTWARE.
         </div>
         <i
           [ngStyle]="editorToggled ? { right: '-2.5%' } : {}"
-          (click)="toggleEditor()"
+          (click)="onToggleClick()"
           [ngClass]="[
             !editorToggled ? 'bi bi-arrow-bar-right' : 'bi bi-arrow-bar-left',
             'md-editor__toggle',

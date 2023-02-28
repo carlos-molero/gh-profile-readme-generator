@@ -63,6 +63,10 @@ export class AppComponent implements OnInit {
     this.updateHtmlContent(content);
   }
 
+  onToggleClick(): void {
+    this.editorToggled = !this.editorToggled;
+  }
+
   updateHtmlContent(input: string): void {
     this.htmlContent = this.markdown.toHtml(input);
     setTimeout(() => {
@@ -79,11 +83,19 @@ export class AppComponent implements OnInit {
     }
   }
 
-  addImagesElement({ title, urls }: { title: string; urls: string[] }): void {
-    let element = `<!-- ${title} -->`;
-    element += `\n\n## ${title}\n\n`;
-    element += `${urls.map((url) => `![alt](<${url}> =50pxx50px)`).join('')}`;
-    element += `<!-- ${title} -->`;
+  addImagesElement({
+    sectionTitle,
+    imageUrls,
+  }: {
+    sectionTitle: string;
+    imageUrls: string[];
+  }): void {
+    let element = `<!-- ${sectionTitle} -->`;
+    element += `\n\n## ${sectionTitle}\n\n`;
+    element += `${imageUrls
+      .map((imageUrl) => `![alt](<${imageUrl}> =50pxx50px)`)
+      .join('')}`;
+    element += `<!-- ${sectionTitle} -->`;
 
     if (this.currentLanguagesFrameworksAndLibrariesSectionMd !== '') {
       this.mdContent = this.mdContent.replace(
@@ -95,9 +107,5 @@ export class AppComponent implements OnInit {
     }
     this.currentLanguagesFrameworksAndLibrariesSectionMd = element;
     this.updateHtmlContent(this.mdContent);
-  }
-
-  toggleEditor(): void {
-    this.editorToggled = !this.editorToggled;
   }
 }
