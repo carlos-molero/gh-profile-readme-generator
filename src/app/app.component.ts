@@ -24,7 +24,7 @@
 import { Component, OnInit } from '@angular/core';
 import Toast from 'bootstrap/js/dist/toast';
 import { HighlightJS } from 'ngx-highlightjs';
-import Markdown from 'src/providers/Markdown.provider';
+import Markdown from 'src/app/providers/Markdown.provider';
 import { languagesFrameworksAndLibrariesData } from './data';
 import copy from 'copy-to-clipboard';
 

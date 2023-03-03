@@ -22,8 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-@use "../../styles/components/md-editor/variables.scss" as variables;
-@use "../../styles/queries.scss" as queries;
+@use "../../../styles/components/md-editor/variables.scss" as variables;
+@use "../../../styles/queries.scss" as queries;
 
 .md-editor__blocks{
     min-height: variables.$mobile-editor-min-height;

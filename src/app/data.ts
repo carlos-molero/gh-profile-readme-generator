@@ -1,4 +1,4 @@
-import { SelectImagesDialogItem } from 'src/components/select-images-dialog-component/select-images-dialog-component';
+import { SelectImagesDialogItem } from 'src/app/components/select-images-dialog-component/select-images-dialog-component';
 
 const languagesFrameworksAndLibrariesData: SelectImagesDialogItem[] = [
   {
